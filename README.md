@@ -1,11 +1,15 @@
 # Algorithm-Template
 
 
-### Two pointer equi directional 
+### Two pointer (equi directional )
 
 
 [209 Minimum Size Subarray Sum ](https://leetcode.com/problems/minimum-size-subarray-sum/)
 
 
 
-### Two pointer opposite directional 
+### Two pointer (opposite directional)  
+
+1. Sort first
+
+
