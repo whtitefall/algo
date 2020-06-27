@@ -12,6 +12,7 @@
 
 1. Sort first
 
+[881. Boats to Save People](https://leetcode.com/problems/boats-to-save-people/)
 
 ### Sliding window (similar to equi directional two pointer)
 
