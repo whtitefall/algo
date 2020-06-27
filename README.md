@@ -17,3 +17,8 @@
 ### Sliding window (similar to equi directional two pointer)
 
 [713. Subarray Product Less Than K](https://leetcode.com/problems/subarray-product-less-than-k/)
+Dynamic sliding window, similarr to two pointer equi directional. 
+
+
+[567. Permutation in String](https://leetcode.com/problems/permutation-in-string/)  
+Fixed sliding window, differnt from 713
