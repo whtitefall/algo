@@ -6,9 +6,10 @@
 
 [209. Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/)
 
-[930. Binary Subarrays With Sum](https://leetcode.com/problems/binary-subarrays-with-sum/)
+[930. Binary Subarrays With Sum](https://leetcode.com/problems/binary-subarrays-with-sum/)  
 More like an equi three pointer, because its binary limitation and countting requirements
 
+***
 
 ### Two pointer (opposite directional)  Needs sort
 
@@ -16,6 +17,8 @@ More like an equi three pointer, because its binary limitation and countting req
 
 [881. Boats to Save People](https://leetcode.com/problems/boats-to-save-people/)  
 Move and compare
+
+***
 
 ### Sliding window (similar to equi directional two pointer)
 
