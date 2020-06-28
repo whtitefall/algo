@@ -1,6 +1,8 @@
 # Algorithm-Template
 
+Aiming to find generic algorithm solution 
 
+***
 ### Two pointer (equi directional )
 
 
@@ -8,6 +10,7 @@
 
 [930. Binary Subarrays With Sum](https://leetcode.com/problems/binary-subarrays-with-sum/)  
 More like an equi three pointer, because its binary limitation and countting requirements
+
 
 ***
 
@@ -30,3 +33,26 @@ Dynamic sliding window
 
 [567. Permutation in String](https://leetcode.com/problems/permutation-in-string/)  
 Fixed sliding window, differnt from 713
+
+
+[978. Longest Turbulent Subarray](https://leetcode.com/problems/longest-turbulent-subarray/)
+
+Dynamic sliding window
+
+[424. Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)  
+Dynamic sliding window 
+
+***
+### Floyd's cycle (equi two pointer similar)
+
+[287. Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/)  
+Two phase cycle, 1st phase intersection, 2nd phase meet at entrance of cycle
+
+
+***
+
+### Binary Search
+
+[33. Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
+
+Modified binary search, find pivot first
