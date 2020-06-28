@@ -10,7 +10,8 @@ Aiming to find generic algorithm solution
 
 [930. Binary Subarrays With Sum](https://leetcode.com/problems/binary-subarrays-with-sum/)  
 More like an equi three pointer, because its binary limitation and countting requirements
-
+[209. Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/)  
+Similar to dynamic sliding window.
 
 ***
 
@@ -53,6 +54,17 @@ Two phase cycle, 1st phase intersection, 2nd phase meet at entrance of cycle
 
 ### Binary Search
 
-[33. Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
-
+[33. Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)  
 Modified binary search, find pivot first
+
+[658. Find K Closest Elements](https://leetcode.com/problems/find-k-closest-elements/)  
+1.binary search 2.expand around target value
+
+
+***
+
+### Dynamic programming 
+
+[300. Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)  
+remmber longgest sequence length at each step. n^2  
+can be improved using binary search, searching desired numbers and insert into current dp sequence.
