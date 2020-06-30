@@ -65,6 +65,25 @@ Modified binary search, find pivot first
 
 ### Dynamic programming 
 
+tarverse + process to find current best  
+think about matrix
+
 [300. Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)  
-remmber longgest sequence length at each step. n^2  
+remmber longgest sequence length at each step. n^2 (compare inward values)  
 can be improved using binary search, searching desired numbers and insert into current dp sequence.
+
+
+
+[673. Number of Longest Increasing Subsequence](https://leetcode.com/problems/number-of-longest-increasing-subsequence/)  
+
+remmber longgest sequence at each step (compare inward values)  
+
+[152.Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/)  
+remmber current best, then compare, process only takes O(1) because its mutiplication trait
+
+
+[1143.Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)  
+matrix, get best value at each step 
+
+[523.Continuous Subarray Sum](https://leetcode.com/problems/continuous-subarray-sum/)  
+find and save sol each step, use *mod* is the key 
