@@ -1,4 +1,6 @@
 
+DP 
+
 coin change: 
 
 https://leetcode.com/problems/coin-change/discuss/1173137/Python-3-DP-Multiple-Solutions-Recursion-and-iteration-Explained
@@ -32,3 +34,15 @@ https://leetcode.com/problems/perfect-squares/discuss/1612709/Squares-%2B-Coin-C
 unique path 
 
 https://leetcode.com/problems/unique-paths/discuss/1608619/Python3-easy-DP-solution
+
+
+
+DFS
+
+symmetric tree 
+
+https://leetcode.com/problems/symmetric-tree/discuss/1604249/Python3-99.02
+
+k-small element 
+
+https://leetcode.com/problems/kth-smallest-element-in-a-bst/discuss/1449100/python-in-order-traversal-solution-time-O(K)-space-O(1)-no-extra-space-needed
