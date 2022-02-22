@@ -38,6 +38,7 @@ https://leetcode.com/problems/unique-paths/discuss/1608619/Python3-easy-DP-solut
 
 
 
+
 DFS
 
 symmetric tree 
@@ -104,3 +105,25 @@ https://leetcode-cn.com/problems/permutations/solution/quan-pai-lie-by-leetcode-
 combination sum 
 
 https://leetcode.com/problems/combination-sum/discuss/1778054/Python-short-and-clean-solution-explained
+
+target sum 
+
+https://leetcode-cn.com/problems/target-sum/solution/mu-biao-he-by-leetcode-solution-o0cp/
+https://leetcode.com/problems/target-sum/discuss/1745132/python-top-down-dp-detailed-explanation (DP)
+
+
+Two pointers 
+
+
+container with most water 
+
+https://leetcode.com/problems/container-with-most-water/discuss/1788928/Python-or-Runtime%3A-faster-than-96.99-Memory-Usage%3A-less-than-98.36
+
+
+Shortest Unsorted Continuous Subarray
+https://leetcode-cn.com/problems/shortest-unsorted-continuous-subarray/solution/zui-duan-wu-xu-lian-xu-zi-shu-zu-by-leet-yhlf/
+
+
+sort list 
+
+https://leetcode-cn.com/problems/sort-list/solution/pai-xu-lian-biao-by-leetcode-solution/
