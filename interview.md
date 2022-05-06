@@ -40,6 +40,10 @@ Nim游戏
 
 根号
 
+### Q5
 
+Tree traversal
+
+https://leetcode.com/problems/validate-binary-search-tree/discuss/786520/General-Tree-Traversal-Problems-interview-Prep
 
 
