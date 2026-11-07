@@ -100,6 +100,18 @@ class RelayTests(unittest.TestCase):
         self.assertEqual(HOLD_REPLY[:3], b"451")
 
 
+class PushSummaryTests(unittest.TestCase):
+    def test_long_lists_are_cut_to_one_short_line(self):
+        body = "发现新的加拿大科技岗位：\n\n" + "".join(
+            f"{i}. Company{i} | Senior Full Stack Software Engineer, Platform\n   地点: Toronto\n\n"
+            for i in range(1, 13)) + "发送时间(UTC): 2026-11-07T10:00:00+00:00"
+        text = jm_runner.push_summary({"job_count": 12, "body": body})
+        self.assertLessEqual(len(text), jm_runner.PUSH_LIMIT)
+        self.assertTrue(text.startswith("Canada Job Alert：12 个新职位 — Company1 | Senior"))
+        self.assertTrue(text.endswith("…"))
+        self.assertNotIn("\n", text)
+
+
 class RunnerTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -218,6 +230,8 @@ class RunnerTests(unittest.TestCase):
         self.assertIn("https://example.com/jobs/t:1", body)
         self.assertTrue(body.startswith("发现新的加拿大科技岗位："), body[:40])
         self.assertNotIn("\r", body)
+        push = (self.workdir / "outbox" / "push.txt").read_text()
+        self.assertEqual(push, "Canada Job Alert：1 个新职位 — TestCo | Software Engineer")
         self.assertEqual([j["unique_id"] for j in self.state()["pending_notifications"]], ["t:1"])
         self.assertTrue((self.checkout / "state" / "lease.json").exists())
         self.assertEqual(self.remote_head(), git(self.checkout, "rev-parse", "HEAD"))

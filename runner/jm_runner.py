@@ -42,6 +42,8 @@ LEASE_MINUTES = 45
 HISTORY_KEEP = 3000
 MONITOR_TIMEOUT_SECONDS = 1500
 SUBJECT_RE = re.compile(r"^\[Canada Job Alert\] (\d+) new openings")
+JOB_LINE_RE = re.compile(r"^\d+\. (.+)$", re.MULTILINE)  # "1. Company | Title" in job_monitor's body
+PUSH_LIMIT = 180  # Claude mobile push: one line, under 200 characters
 JOB_FIELDS = frozenset({"unique_id", "source", "company", "title", "location", "url", "updated_at"})
 
 EXIT_OK, EXIT_MONITOR_FAILED, EXIT_PREFLIGHT, EXIT_BRANCH_MOVED, EXIT_SEND_EMAIL = 0, 1, 2, 3, 10
@@ -299,6 +301,14 @@ def run_original_monitor(*, src: Path, python: Path, base_config: dict, state_pa
             "command": " ".join(shown)}
 
 
+def push_summary(held: dict) -> str:
+    """One-line summary of the held email for the Claude mobile push notification."""
+    entries = [entry.strip() for entry in JOB_LINE_RE.findall(held["body"])]
+    text = f"Canada Job Alert：{held['job_count']} 个新职位 — " + "；".join(entries)
+    text = " ".join(text.split())
+    return text if len(text) <= PUSH_LIMIT else text[:PUSH_LIMIT - 1] + "…"
+
+
 def parse_captured(data: bytes) -> email.message.EmailMessage:
     # SMTP carries CRLF line ends; job_monitor.py built the body with "\n".
     return email.message_from_bytes(data.replace(b"\r\n", b"\n"), policy=email.policy.default)
@@ -480,13 +490,16 @@ def cmd_cycle(args) -> int:
         outbox = workdir / "outbox"
         outbox.mkdir()
         (outbox / "body.txt").write_text(held["body"], encoding="utf-8")
+        (outbox / "push.txt").write_text(push_summary(held), encoding="utf-8")
         write_json(outbox / "email.json", {"run_id": run_id, "to": held["to"], "subject": held["subject"],
                                            "body_file": str(outbox / "body.txt"),
+                                           "push_file": str(outbox / "push.txt"),
                                            "body_sha256": held["body_sha256"], "job_count": held["job_count"]})
         print("HELD EMAIL - send it with the Gmail connector, then run finalize:")
         print(f"  to: {', '.join(held['to'])}")
         print(f"  subject: {held['subject']}")
         print(f"  body: the exact contents of {outbox / 'body.txt'}")
+        print(f"  push notification after a successful send: the exact contents of {outbox / 'push.txt'}")
         return EXIT_SEND_EMAIL
     return EXIT_OK if outcome == "ok" else EXIT_MONITOR_FAILED
 

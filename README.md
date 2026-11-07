@@ -18,6 +18,7 @@ GitHub Actions 上的原系统保持原样，本分支不修改、不触发、�
 5. 会话用 **Gmail 连接器**发出这封邮件，再运行 `finalize`。发件人是连接器当前登录的 Gmail 账号，不一定是 whtitefall@gmail.com；收件人仍是 `companies.json` 里的地址。`finalize` 分两种：
    - `--sent <Gmail 消息 ID>`：执行和原脚本“发送成功”分支完全相同的状态变化：pending 里的职位 ID 并入 `seen_job_ids`，`pending_notifications` 清空。
    - `--failed <原因>`：什么也不改，职位继续留在 pending，下一小时由原脚本重发（原有的待重试行为）。
+6. 手机推送（Claude App）：发信成功后，推一条一行摘要，例如「Canada Job Alert：3 个新职位 — Stripe | Software Engineer；…」。摘要由运行器从邮件正文提取，不超过 180 字符，点开可进入那次运行查看完整报告。发信失败、状态保存失败（git push 被拒）或运行出错时也会推送。没有新职位时不推送。手机上需要安装 Claude App，登录同一账号，并允许通知。
 
 ## 与原 GitHub 系统的差别（已获你同意）
 
