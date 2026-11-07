@@ -1,0 +1,10 @@
+{
+  "repository": "https://github.com/whtitefall/python-scripts.git",
+  "commit": "652aa62606e836742f9dc0b0b6097e96f5b1a5e0",
+  "files": {
+    "job-monitor/job_monitor.py": "7b4a09b864f1e5720a35c6cfe1ab125c2195df00",
+    "job-monitor/companies.json": "f9cd82825ee449029194b4d03338602a362e3a39",
+    "job-monitor/requirements.txt": "0eb8cae7f9083d1b4e70d94cbd6ac82cd63476d9"
+  },
+  "note": "Git blob SHA-1 of each file at the pinned commit, verified before every run. To follow a newer upstream commit, review the diff first, then update commit and blobs here."
+}
