@@ -163,14 +163,15 @@ def append_history(layout: Layout, entry: dict) -> None:
 
 
 def commit(layout: Layout, message: str) -> bool:
+    """Commit only state/ (anything else staged in the checkout is left alone)."""
     git(layout, "add", "--all", "state")
-    if git(layout, "diff", "--cached", "--quiet", check=False).returncode == 0:
+    if git(layout, "diff", "--cached", "--quiet", "--", "state", check=False).returncode == 0:
         return False
     identity = []
     if not git(layout, "config", "user.email", check=False).stdout.strip():
         identity = ["-c", "user.name=canada-job-monitor",
                     "-c", "user.email=canada-job-monitor@users.noreply.github.com"]
-    git(layout, *identity, "commit", "--quiet", "-m", message)
+    git(layout, *identity, "commit", "--quiet", "-m", message, "--", "state")
     return True
 
 
