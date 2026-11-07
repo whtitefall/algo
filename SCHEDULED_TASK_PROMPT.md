@@ -20,3 +20,5 @@ Do exactly these steps and nothing else. Do not edit any code, do not open pull 
    - 1 or 2: send nothing; include the printed error in your report.
 
 4. End with a short report: the cycle exit code, the RUN line the runner printed, whether an email was sent (with the Gmail message id), and the finalize result.
+
+Expected, not problems: the WARNING "Monitoring delayed: about 60 minutes since the previous check (target 5.0 minutes)" (job_monitor.py's own 5-minute target; this copy runs hourly), and occasional HTTP 429/403/404 from individual job sites. Only these are noteworthy, for example for a push notification: an email that could not be sent, or a cycle exit code of 1, 2 or 3.
