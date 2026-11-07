@@ -15,7 +15,7 @@ GitHub Actions 上的原系统保持原样，本分支不修改、不触发、�
    - 用原命令行执行原脚本：`python job_monitor.py --config <运行时副本> --state <状态副本> --once`。不加 `--send-initial-snapshot`。
 3. 原脚本有新职位要通知时，会照常用 `smtplib.SMTP_SSL` 登录并发信，只是对端换成了本机中继（`runner/held_smtp_relay.py`）。中继收下完整邮件，回复临时失败 `451`。原脚本因此和平时“Gmail 连不上”时的处理完全一样：职位保留在 `pending_notifications`，保存状态，退出码 1。
 4. 运行器把状态提交并推送到本分支，同时写一个租约 `state/lease.json`（45 分钟），然后把截下来的邮件（收件人、主题、正文都是原脚本生成的）交给会话。
-5. 会话用 **Gmail 连接器**（你的 Gmail 账号）发出这封邮件，再运行 `finalize`：
+5. 会话用 **Gmail 连接器**发出这封邮件，再运行 `finalize`。发件人是连接器当前登录的 Gmail 账号，不一定是 whtitefall@gmail.com；收件人仍是 `companies.json` 里的地址。`finalize` 分两种：
    - `--sent <Gmail 消息 ID>`：执行和原脚本“发送成功”分支完全相同的状态变化：pending 里的职位 ID 并入 `seen_job_ids`，`pending_notifications` 清空。
    - `--failed <原因>`：什么也不改，职位继续留在 pending，下一小时由原脚本重发（原有的待重试行为）。
 
@@ -25,6 +25,7 @@ GitHub Actions 上的原系统保持原样，本分支不修改、不触发、�
 |---|---|---|
 | 代码 | `job_monitor.py` | 同一文件，字节一致，按哈希核对 |
 | 发信 | Gmail SMTP `smtp.gmail.com:465` | Claude 云只放行 443 端口的 HTTPS，SMTP 不可达。改为：本机中继截获，再由 Gmail 连接器发出。邮件内容不变 |
+| 发件人 | `SMTP_USER`（whtitefall@gmail.com） | Gmail 连接器登录的账号。想和原系统一致，就在 claude.ai 的连接器设置里改用 whtitefall@gmail.com 重新连接 Gmail |
 | AI 过滤 | 已开启但未配置，实际回退为硬规则 | 关闭，只用硬规则 |
 | 初始状态 | GitHub Actions 缓存里的生产状态 | 独立的新基线（首次运行把当时可见的职位记为已见，不发信） |
 | 调度 | cron `2-59/5 * * * *` | 每小时一次，America/Toronto |
