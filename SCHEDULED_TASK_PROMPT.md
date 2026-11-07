@@ -14,8 +14,9 @@ Do exactly these steps and nothing else. Do not edit any code, do not open pull 
    - 10: job_monitor.py produced an email that is held for delivery. Read /tmp/jm-work/outbox/email.json and the body file it names. Send exactly ONE email with the Gmail connector's send_message tool: to = the "to" list, subject = the "subject" value exactly, body = the exact contents of the body file as plain text, unchanged, nothing added or removed. Then run one of:
        python3 /tmp/jm-checkout/runner/jm_runner.py finalize --sent <the message id Gmail returned>
        python3 /tmp/jm-checkout/runner/jm_runner.py finalize --failed "<short error text>"   (only if the send failed)
+     If no Gmail send_message tool exists in this session, do not look for another way to send: run finalize --failed "Gmail connector not attached to the scheduled task" and say so in the report.
      Never send the email more than once, and never send any email unless the cycle exit code was 10.
-   - 3: the state branch moved during the run. Send nothing.
+   - 3: the push failed (another run moved the branch, or this session has no push access to whtitefall/algo). Send nothing; quote the git error in the report.
    - 1 or 2: send nothing; include the printed error in your report.
 
 4. End with a short report: the cycle exit code, the RUN line the runner printed, whether an email was sent (with the Gmail message id), and the finalize result.

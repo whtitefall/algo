@@ -10,8 +10,9 @@
   status    summary of the state branch
 
 Exit codes: 0 done, 10 a held email must be sent and finalized, 1 the monitor
-failed (receipt committed), 2 preflight refused (nothing changed), 3 the state
-branch moved or a push was rejected (do NOT send the held email).
+failed (receipt committed), 2 preflight refused (nothing changed), 3 the push
+failed: the state branch moved or the session lacks push access (do NOT send
+the held email).
 
 See ../README.md for the design. Standard library only.
 """
@@ -471,8 +472,9 @@ def cmd_cycle(args) -> int:
     for problem in problems:
         print("  PROBLEM: " + problem)
     if args.push and not pushed:
-        print("BRANCH MOVED / PUSH REJECTED: another run updated the state branch. Do NOT send any email; "
-              "the next scheduled run starts from the newer state.")
+        print("PUSH FAILED (see the git error above): either another run updated the state branch, or this "
+              "session may not push to the repository (the scheduled task must list whtitefall/algo under "
+              "its repositories). Do NOT send any email.")
         return EXIT_BRANCH_MOVED
     if outcome == "held_for_gmail":
         outbox = workdir / "outbox"
@@ -549,7 +551,7 @@ def cmd_finalize(args) -> int:
     meta["finalized"] = event
     if meta.get("push_enabled") and not push(layout, meta["branch"]):
         write_json(meta_path, meta)
-        print("PUSH REJECTED after finalize: the state branch moved; the next cycle may send these jobs again")
+        print("PUSH FAILED after finalize (see the git error above): the next cycle may send these jobs again")
         return EXIT_BRANCH_MOVED
     write_json(meta_path, meta)
     print(f"FINALIZED {meta['run_id']}: {event} counts={c}")

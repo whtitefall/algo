@@ -48,7 +48,15 @@ GitHub Actions 上的原系统保持原样，本分支不修改、不触发、�
 
 ## 退出码
 
-`cycle`：0 完成；10 有邮件待发，发完要 `finalize`；1 原脚本失败（回执已提交）；2 启动检查拒绝（什么都没改）；3 分支在运行期间被别的运行更新了（这时不要发信）。
+`cycle`：0 完成；10 有邮件待发，发完要 `finalize`；1 原脚本失败（回执已提交）；2 启动检查拒绝（什么都没改）；3 推送失败，可能是分支在运行期间被别的运行更新了，也可能是会话没有推送权限（这时不要发信）。
+
+## 定时任务的必要设置
+
+在 [claude.ai/code/routines](https://claude.ai/code/routines) 编辑 “Canada job monitor (hourly)”，确认以下三项：
+
+- **Repository**：`whtitefall/algo`。不加的话，运行会话没有推送权限，git 代理返回 403，状态无法保存。
+- **Connectors**：只保留 **Gmail**。不加的话会话里没有发信工具，新职位会一直留在 pending。
+- **Cloud environment**：`algo (Canada Job Monitor)`，它放行了 18 个职位源域名。
 
 ## 常用操作
 
