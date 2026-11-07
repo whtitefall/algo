@@ -1,0 +1,45 @@
+{
+  "run_id": "20261107T030010Z-37c2",
+  "started_at": "2026-11-07T03:00:10+00:00",
+  "finished_at": "2026-11-07T03:03:34+00:00",
+  "duration_seconds": 203.3,
+  "outcome": "ok",
+  "problems": [],
+  "monitor_exit_code": 0,
+  "command": "python job_monitor.py --config /tmp/claude-0/-home-user-algo/1a0db2ff-1e27-5818-92c8-e8ba9be3b4cc/scratchpad/jm-work/runtime-companies.json --state /tmp/claude-0/-home-user-algo/1a0db2ff-1e27-5818-92c8-e8ba9be3b4cc/scratchpad/jm-work/state.json --once",
+  "baseline_created": true,
+  "state_committed": true,
+  "state_error": null,
+  "base_commit": "8d7d774857ef9b48c7e05eac0404f4e9bea37ef2",
+  "source": {
+    "repository": "https://github.com/whtitefall/python-scripts.git",
+    "commit": "652aa62606e836742f9dc0b0b6097e96f5b1a5e0",
+    "upstream_master": null
+  },
+  "runtime": {
+    "python": "3.13.18",
+    "requests": "2.34.2"
+  },
+  "config_overrides": [
+    "ai_filter.enabled=false",
+    "smtp_host=127.0.0.1",
+    "smtp_port=33633 (held relay)"
+  ],
+  "counts_before": null,
+  "counts_after": {
+    "seen": 190,
+    "pending": 0,
+    "ai_rejected": 0
+  },
+  "email": {
+    "status": "none"
+  },
+  "relay": {
+    "connections": 0,
+    "auth_failures": 0,
+    "errors": [],
+    "messages": 0
+  },
+  "source_warnings": [],
+  "stale_lease_run_id": null
+}

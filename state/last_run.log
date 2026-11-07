@@ -1,0 +1,29 @@
+2026-11-06 22:00:22,726 | INFO | Greenhouse Reddit               -> 2 Canada jobs
+2026-11-06 22:00:26,927 | INFO | Greenhouse Lyft                 -> 14 Canada jobs
+2026-11-06 22:00:29,919 | INFO | Greenhouse Stripe               -> 5 Canada jobs
+2026-11-06 22:00:33,498 | INFO | Greenhouse Instacart            -> 2 Canada jobs
+2026-11-06 22:00:39,078 | INFO | Greenhouse Affirm               -> 23 Canada jobs
+2026-11-06 22:00:44,776 | INFO | Greenhouse Okta                 -> 9 Canada jobs
+2026-11-06 22:00:49,316 | INFO | Greenhouse Robinhood            -> 3 Canada jobs
+2026-11-06 22:00:53,681 | INFO | Greenhouse DoorDash             -> 0 Canada jobs
+2026-11-06 22:00:57,025 | INFO | Greenhouse Pinterest            -> 5 Canada jobs
+2026-11-06 22:01:02,850 | INFO | Lever      Spotify              -> 1 Canada jobs
+2026-11-06 22:01:08,266 | INFO | Google     Google               -> 8 Canada jobs
+2026-11-06 22:01:15,848 | INFO | Microsoft  Microsoft            -> 4 Canada jobs
+2026-11-06 22:01:21,086 | INFO | Microsoft  Qualcomm             -> 4 Canada jobs
+2026-11-06 22:01:24,440 | INFO | Uber       Uber                 -> 1 Canada jobs
+2026-11-06 22:01:37,734 | INFO | Workday    Workday              -> 2 Canada jobs
+2026-11-06 22:01:42,534 | INFO | Workday    Qualcomm             -> 0 Canada jobs
+2026-11-06 22:01:48,899 | INFO | Workday    Autodesk             -> 0 Canada jobs
+2026-11-06 22:01:53,555 | INFO | Jibe       AMD                  -> 0 Canada jobs
+2026-11-06 22:02:02,554 | INFO | Yelp       Yelp                 -> 0 Canada jobs
+2026-11-06 22:02:24,357 | INFO | eBay       eBay                 -> 7 Canada jobs
+2026-11-06 22:02:31,514 | INFO | Amazon     Amazon               -> 93 Canada jobs
+2026-11-06 22:02:36,956 | INFO | Ashby      Confluent            -> 0 Canada jobs
+2026-11-06 22:02:41,869 | INFO | IBM API    IBM                  -> 4 Canada jobs
+2026-11-06 22:02:47,391 | INFO | Intuit     Intuit               -> 3 Canada jobs
+2026-11-06 22:03:33,521 | INFO | Snowflake  Snowflake            -> 0 Canada jobs
+2026-11-06 22:03:33,530 | INFO | Age filter kept 24/190 jobs within 2 days.
+2026-11-06 22:03:33,530 | INFO | Initialized baseline with 24 jobs. No initial email sent.
+2026-11-06 22:03:33,530 | INFO | No new jobs this cycle.
+2026-11-06 22:03:33,530 | INFO | Check cycle finished in 196.61s.
